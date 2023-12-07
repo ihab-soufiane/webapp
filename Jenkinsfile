@@ -4,6 +4,7 @@ pipeline {
     tools
     {
        maven "Maven"
+       dockerTool "docker"
     }
     stages {
       stage('checkout') {

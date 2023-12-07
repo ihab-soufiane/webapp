@@ -40,7 +40,7 @@ pipeline {
     	stage('Run Docker container on Jenkins Agent') {
              
             steps {
-                sh 'docker run --name ihab/webapp -d -p 8003:8080 webapp:v1'
+                sh 'docker run -d -p 8003:8080 webapp:v1'
             }
         }
     }

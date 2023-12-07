@@ -23,8 +23,10 @@ pipeline {
 
     	stage('Docker Build ') {
             steps {
-              
+                withDockerRegistry(credentialsId: '9177bc4c-188e-4f08-aabd-0fcfba1d9c37') {
                 sh 'docker build -t webapp:v1 .' 
+}
+               
                
                
           }

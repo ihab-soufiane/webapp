@@ -24,7 +24,7 @@ pipeline {
     	stage('Docker Build ') {
             steps {
               
-                sh 'docker build -t webApp:v1 .' 
+                sh 'docker build -t webapp:v1 .' 
                
                
           }
@@ -36,7 +36,7 @@ pipeline {
              
             steps 
 			{
-                sh 'docker run --name ihab/webApp -d -p 8003:8080 webApp:v1'
+                sh 'docker run --name ihab/webapp -d -p 8003:8080 webapp:v1'
  
             }
         }

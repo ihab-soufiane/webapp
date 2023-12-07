@@ -26,7 +26,8 @@ pipeline {
 		script{
                      withDockerRegistry(credentialsId: '9177bc4c-188e-4f08-aabd-0fcfba1d9c37', toolName: 'docker') {
 		     }
-                     sh 'docker build -t webapp:v1 .' 
+                     sh 'docker build -t webapp:v1 .'
+		     sh 'docker login -u "ihabsf" -p "ihabsoufiane" docker.io'	
 		     sh 'docker tag webapp:v1 ihabsf/webapp:v1'
 		     sh 'docker push ihabsf/webapp:v1'
 		}

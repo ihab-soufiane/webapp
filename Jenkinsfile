@@ -23,8 +23,10 @@ pipeline {
 
     	stage('Docker Build ') {
             steps {
-                withDockerRegistry(credentialsId: '9177bc4c-188e-4f08-aabd-0fcfba1d9c37' toolName: 'docker') {
-                sh 'docker build -t webapp:v1 .' 
+		script{
+                     withDockerRegistry(credentialsId: 'b17da05a-467c-43d8-a57f-166c83749f52') toolName: 'docker') {
+                     sh 'docker build -t webapp:v1 .' 
+		}
 }
                
                

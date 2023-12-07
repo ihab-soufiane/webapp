@@ -24,24 +24,23 @@ pipeline {
     	stage('Docker Build ') {
             steps {
 		script{
-                     withDockerRegistry(credentialsId: '9177bc4c-188e-4f08-aabd-0fcfba1d9c37') , toolName: 'docker') {
+                     withDockerRegistry(credentialsId: '9177bc4c-188e-4f08-aabd-0fcfba1d9c37', toolName: 'docker') {
+		     }
                      sh 'docker build -t webapp:v1 .' 
 		}
-}
+       }
                
                
                
           }
-        }
+        
      
  
       
     	stage('Run Docker container on Jenkins Agent') {
              
-            steps 
-			{
+            steps {
                 sh 'docker run --name ihab/webapp -d -p 8003:8080 webapp:v1'
- 
             }
         }
     }

@@ -1,20 +1,19 @@
 pipeline {
-    agent any
+	agent any
 	
-    tools
-    {
-       maven "Maven"
-       dockerTool "docker"
-    }
-    stages {
-      stage('checkout') {
-           steps {
+	tools{
+		maven "Maven"
+       		dockerTool "docker"
+    	}
+     	stages {
+      		stage('checkout') {
+           	    steps {
              
-                git branch: 'master', url: 'https://github.com/devops4solutions/CI-CD-using-Docker.git'
+               		git branch: 'master', url: 'https://github.com/devops4solutions/CI-CD-using-Docker.git'
              
-          }
+         		}
         }
-	 stage('Execute Maven') {
+   	stage('Execute Maven') {
            steps {
              
                 sh 'mvn package'             
@@ -22,8 +21,8 @@ pipeline {
         }
         
 
-    stage('Docker Build and Tag') {
-           steps {
+    	stage('Docker Build and Tag') {
+            steps {
               
                 sh 'docker build -t samplewebapp:latest .' 
                
@@ -33,7 +32,7 @@ pipeline {
      
  
       
-    stage('Run Docker container on Jenkins Agent') {
+    	stage('Run Docker container on Jenkins Agent') {
              
             steps 
 			{

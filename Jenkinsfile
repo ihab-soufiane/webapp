@@ -9,7 +9,7 @@ pipeline {
       		stage('checkout') {
            	    steps {
              
-               		git branch: 'main', url: 'https://github.com/ihab-soufiane/webapp.git'
+               		git branch: 'main', credentialsId: '123', url: 'https://github.com/ihab-soufiane/webapp.git'
              
          		}
         }
